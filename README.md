@@ -51,20 +51,20 @@ SATUS_CHOICES = [New, In Progress, Complete]
 
 ### Tasks
 
-- GET     /
-- GET     /tasks/{id}/
-- POST    /tasks/
-- PUT     /tasks/{id}/
-- DELETE  /tasks/{id}/
+- GET     tasks/
+- POST    tasks/add/
+- PUT     tasks/edit-task/
+- PATCH   tasks/update-status/
+- DELETE  tasks/delete/
 
 ### Auth
 
-- POST /auth/login
-- POST /auth/register
+- POST /user/login
+- POST /user/register
 
 ---
 
-## Installation Steps
+## Installation Steps (Linux)
 
 git clone [ add repo name here ]
 
@@ -75,6 +75,8 @@ python -m venv venv
 source venv/bin/activate
 
 pip install -r requirements.txt
+
+cd todo
 
 python manage.py migrate
 
