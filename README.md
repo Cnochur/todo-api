@@ -66,21 +66,21 @@ SATUS_CHOICES = [New, In Progress, Complete]
 
 ## Installation Steps (Linux)
 
-git clone [ add repo name here ]
-
-cd todo-api
-
-python -m venv venv
-
-source venv/bin/activate
-
-pip install -r requirements.txt
-
-cd todo
-
-python manage.py migrate
-
-python manage.py runserver
+    git clone https://github.com/Cnochur/todo-api.git
+    
+    cd todo-api
+    
+    python -m venv venv
+    
+    source venv/bin/activate
+    
+    pip install -r requirements.txt
+    
+    cd todo
+    
+    python manage.py migrate
+    
+    python manage.py runserver
 
 ---
 
