@@ -57,11 +57,11 @@
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     <h5 class="mb-0">📋 To Do</h5>
                     <span class="badge bg-secondary">
-                        {{ todo_tasks|length }}
+                        {{ new_tasks|length }}
                     </span>
                 </div>
 
-                {% for task in todo_tasks %}
+                {% for task in new_tasks %}
                 <div class="card shadow-sm border-0 mb-3 task-card">
                     <div class="card-body">
 
@@ -76,14 +76,14 @@
                         <div class="d-flex gap-2">
 
                             <a
-                                href="{% url 'tasksAPI:task_edit' task.id %}"
+                                href="{% url 'tasksAPI:edit_task' task.id %}"
                                 class="btn btn-sm btn-warning"
                             >
                                 Edit
                             </a>
 
                             <a
-                                href="{% url 'tasksAPI:task_delete' task.id %}"
+                                href="{% url 'tasksAPI:delete_task' task.id %}"
                                 class="btn btn-sm btn-danger"
                             >
                                 Delete
@@ -127,14 +127,14 @@
                         <div class="d-flex gap-2">
 
                             <a
-                                href="{% url 'tasksAPI:task_edit' task.id %}"
+                                href="{% url 'tasksAPI:edit_task' task.id %}"
                                 class="btn btn-sm btn-warning"
                             >
                                 Edit
                             </a>
 
                             <a
-                                href="{% url 'tasksAPI:task_delete' task.id %}"
+                                href="{% url 'tasksAPI:delete_task' task.id %}"
                                 class="btn btn-sm btn-danger"
                             >
                                 Delete
@@ -152,18 +152,18 @@
             </div>
         </div>
 
-        <!-- DONE -->
+        <!-- COMPLETE -->
         <div class="col-lg-4">
             <div class="kanban-column">
 
                 <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h5 class="mb-0">✅ Done</h5>
+                    <h5 class="mb-0">✅ Completed</h5>
                     <span class="badge bg-success">
-                        {{ done_tasks|length }}
+                        {{ complete_tasks|length }}
                     </span>
                 </div>
 
-                {% for task in done_tasks %}
+                {% for task in complete_tasks %}
                 <div class="card shadow-sm border-0 mb-3 task-card">
                     <div class="card-body">
 
@@ -178,14 +178,14 @@
                         <div class="d-flex gap-2">
 
                             <a
-                                href="{% url 'tasksAPI:task_edit' task.id %}"
+                                href="{% url 'tasksAPI:edit_task' task.id %}"
                                 class="btn btn-sm btn-warning"
                             >
                                 Edit
                             </a>
 
                             <a
-                                href="{% url 'tasksAPI:task_delete' task.id %}"
+                                href="{% url 'tasksAPI:delete_task' task.id %}"
                                 class="btn btn-sm btn-danger"
                             >
                                 Delete
