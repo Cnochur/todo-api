@@ -24,7 +24,7 @@ def update_task_status(request, task_id):
     try:
         task = Task.objects.get(id=task_id)
     except Task.DoesNotExist:
-        return Response({"error": "Task not found"}, status=ststatus.HTTP_404_NOT_FOUND)
+        return Response({"error": "Task not found"}, status=status.HTTP_404_NOT_FOUND)
 
     serializer = TaskSerializer(task, data=request.data, partial=True)
 
