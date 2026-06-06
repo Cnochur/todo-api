@@ -27,7 +27,6 @@ def update_task_status(request, task_id):
         return Response({"error": "Task not found"}, status=status.HTTP_404_NOT_FOUND)
 
     serializer = TaskSerializer(task, data=request.data, partial=True)
-
     if serializer.is_valid():
         serializer.save()
         return Response(serializer.data, status=status.HTTP_200_OK)
@@ -53,6 +52,7 @@ def delete_task(request, task_id):
         task = Task.objects.get(id=int(task_id))
     except Task.DoesNotExist:
         return Response({'error': "Task id does not exist"}, status=status.HTTP_400_BAD_REQUEST)
+
     task.delete()
     return Response({'success': "deleted"}, status=status.HTTP_200_OK)
 
