@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework import status
@@ -5,12 +6,14 @@ from rest_framework import status
 from .models import Task
 from .serializers import TaskSerializer
 
+@login_required(login_url='/auth/login/')
 @api_view(['GET'])
 def get_tasks(request):
     tasks = Task.objects.all()
     serializer = TaskSerializer(tasks, many=True)
     return Response(serializer.data, status=status.HTTP_200_OK)
 
+@login_required(login_url='/auth/login/')
 @api_view(['POST'])
 def add_task(request):
     serializer = TaskSerializer(data=request.data)
@@ -19,6 +22,7 @@ def add_task(request):
         return Response(serializer.data, status=status.HTTP_201_CREATED)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+@login_required(login_url='/auth/login/')
 @api_view(['PATCH'])
 def update_task_status(request, task_id):
     try:
@@ -33,6 +37,7 @@ def update_task_status(request, task_id):
 
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+@login_required(login_url='/auth/login/')
 @api_view(['PUT'])
 def edit_task(request, task_id):
     try:
@@ -46,6 +51,7 @@ def edit_task(request, task_id):
         return Response(serializer.data, status=status.HTTP_200_OK)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+@login_required(login_url='/auth/login/')
 @api_view(['DELETE'])
 def delete_task(request, task_id):
     try:
