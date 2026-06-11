@@ -20,9 +20,9 @@ class RegisterSerializer(serializers.ModelSerializer):
 class LoginSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('email', 'password')
+        fields = ('username', 'password')
         extra_kwargs = {
-            'email': {
+            'username': {
                 'required': True,
                 'validators': [
                     UniqueValidator(queryset=User.objects.all())

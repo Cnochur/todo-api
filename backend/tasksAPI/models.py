@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 # Create your models here.
 
 class Task(models.Model):
@@ -7,7 +8,7 @@ class Task(models.Model):
         ('IN_PROGRESS', 'In Progress'),
         ('COMPLETE', 'Complete'),
     )
-    user_id = models.IntegerField(default=0)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=100)
     description = models.TextField(max_length=500)
     status = models.CharField(choices=STATUS_CHOICES, default="NEW")
