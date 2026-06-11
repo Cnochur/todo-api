@@ -1,5 +1,8 @@
 # To-do API
 ---
+## Final Words
+
+My goal was to start building apis to gain more backend knowledege. During this I decided that learning React along side of this would be a good idea. After fighting with react and ultimitly using GPT to help, I deleted the frontend.
 
 ## Overview
 
